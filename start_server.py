@@ -10,7 +10,7 @@ import webbrowser
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description='启动知行个人研究与效率工作台')
+    parser = argparse.ArgumentParser(description='启动汤甜甜AI编程课程作品集')
     parser.add_argument('--port', type=int, default=8000, help='首选端口，默认8000')
     parser.add_argument('--no-browser', action='store_true', help='启动后不自动打开浏览器')
     args = parser.parse_args()
