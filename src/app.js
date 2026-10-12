@@ -1,3 +1,4 @@
+import './classroom.js';
 import {validateTask,taskStats,filterTasks,isOverdue,escapeHtml,renderMarkdown,safeImportedTasks,describeWeather,normalizeCityResult,formatTemperature} from './core.js';
 import {loadData,saveData} from './storage.js';
 
@@ -6,7 +7,7 @@ const $=selector=>document.querySelector(selector);
 const $$=selector=>[...document.querySelectorAll(selector)];
 const uid=()=>globalThis.crypto?.randomUUID?.() || `${Date.now()}_${Math.random().toString(36).slice(2,9)}`;
 let taskFilter='all',taskSort='created',taskQuery='',editingTaskId=null,selectedNoteId=state.notes[0]?.id || null,noteTab='edit',weatherController=null,toastTimer;
-const VIEW_NAMES={home:'个人主页',tasks:'任务清单',notes:'知识笔记',weather:'实时天气'};
+const VIEW_NAMES={home:'个人主页',tasks:'任务清单',notes:'知识笔记',weather:'实时天气',timer:'倒计时',rollcall:'随机点名'};
 const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
 const persist=()=>{if(!saveData(state))notify('本地存储不可用或空间已满，数据可能无法保存。');};
 function notify(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3800);}
