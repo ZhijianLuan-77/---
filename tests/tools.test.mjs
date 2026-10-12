@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {DEFAULT_ROSTER,secondsFromFields,formatCountdown,parseRoster,randomIndex,drawWithoutReplacement} from '../src/tools.js';
+test('roster has 30 unique people',()=>{assert.equal(DEFAULT_ROSTER.length,30);assert.equal(new Set(DEFAULT_ROSTER).size,30);});
+test('roster includes Tang Tiantian and Zhang Haoyu',()=>{assert.ok(DEFAULT_ROSTER.includes('汤甜甜'));assert.ok(DEFAULT_ROSTER.includes('张浩宇'));});
+test('duration fields correctly convert to seconds',()=>assert.equal(secondsFromFields(1,2,3),3723));
+test('invalid and empty durations rejected',()=>{assert.throws(()=>secondsFromFields(0,0,0));assert.throws(()=>secondsFromFields(0,60,0));});
+test('countdown time display',()=>{assert.equal(formatCountdown(3723),'01:02:03');assert.equal(formatCountdown(-5),'00:00:00');});
+test('roster input normalizes linebreaks and punctuation',()=>assert.deepEqual(parseRoster('汤甜甜，张浩宇\n汤甜甜;李欣言'),['汤甜甜','张浩宇','李欣言']));
+test('roster rejects blank text',()=>assert.throws(()=>parseRoster('')));
+test('random index bounds',()=>{for(let i=0;i<100;i++){const n=randomIndex(30);assert.ok(n>=0&&n<30);}});
+test('entire round draws unique names',()=>{let remaining=[...DEFAULT_ROSTER];const found=[];while(remaining.length){const item=drawWithoutReplacement(remaining);found.push(item.selected);remaining=item.remaining;}assert.equal(new Set(found).size,30);assert.throws(()=>drawWithoutReplacement([]));});
