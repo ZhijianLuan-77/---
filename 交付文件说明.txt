@@ -1,0 +1,7 @@
+汤甜甜 · AI编程实训作品集
+公开网站： https://zhijianluan-77.github.io/---/ （GitHub Pages发布成功后可访问）
+源码仓库：https://github.com/ZhijianLuan-77/---
+课程报告：deliverables/课程实训报告.pdf
+工程文档：docs/01—05相应PDF和Markdown文件。
+本地启动：python start_server.py
+自动化测试：npm test 和 python tests/http_smoke.py

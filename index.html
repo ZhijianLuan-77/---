@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#16223c" />
+  <meta name="description" content="汤甜甜的AI辅助编程实训作品集：任务管理、Markdown笔记、天气查询及软件工程交付文档。" />
+  <title>汤甜甜 · AI编程实践作品集</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 3h11l3 3v15H5zM16 3v5h3M8 12h8M8 16h8"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 13H7L6 7m4 4v6m4-6v6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 18v3h16v-3"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 17V4m-5 5 5-5 5 5M4 17v4h16v-4"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 17-.5 4 4-.5L20 8l-4-4L4 17Zm10-11 4 4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15A8.5 8.5 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a3 3 0 0 1 3-3h14v18H7a3 3 0 0 0 0-6h14M4 5v12a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6m0-6-9 9M19 13v6H5V5h6"/></symbol>
+  </svg>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="侧边导航">
+      <a href="#home" class="brand" aria-label="汤甜甜课程作品首页"><span class="brand-mark">甜</span><span><strong>TIANTIAN / 汤甜甜</strong><small>AI SOFTWARE PRACTICUM</small></span></a>
+      <div class="nav-label">WORKSPACE <span>01</span></div>
+      <nav class="side-nav" aria-label="主导航">
+        <a href="#home" data-view="home" class="nav-link active"><svg class="ic"><use href="#i-grid"/></svg>个人主页<span class="nav-chevron">›</span></a>
+        <a href="#tasks" data-view="tasks" class="nav-link"><svg class="ic"><use href="#i-list"/></svg>任务清单<span class="nav-chevron">›</span></a>
+        <a href="#notes" data-view="notes" class="nav-link"><svg class="ic"><use href="#i-note"/></svg>知识笔记<span class="nav-chevron">›</span></a>
+        <a href="#weather" data-view="weather" class="nav-link"><svg class="ic"><use href="#i-sun"/></svg>实时天气<span class="nav-chevron">›</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><span class="tip-star">✳</span><strong>学习、实践与交付</strong><p>从需求设计到功能实现，用可验证的软件展示学习成果。</p></div>
+        <div class="sidebar-profile"><div class="mini-avatar">甜</div><div><strong>汤甜甜</strong><small>AI 编程实训 · 2026</small></div><span class="online-dot" title="本地离线应用"></span></div>
+      </div>
+    </aside>
+    <div class="mobile-overlay" id="mobile-overlay" hidden></div>
+    <main id="main" class="main-content" tabindex="-1">
+      <header class="topbar"><div class="topbar-left"><button class="icon-btn mobile-menu" id="menu-toggle" aria-label="展开菜单" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button><span class="breadcrumb">工作空间 <span>/</span> <strong id="breadcrumb-title">个人主页</strong></span></div><div class="topbar-right"><span class="local-status"><span class="status-dot"></span> 数据保存在本机</span><button class="icon-btn" id="theme-toggle" aria-label="切换明暗主题" title="切换明暗主题"><svg class="ic"><use href="#i-moon"/></svg></button><span class="top-avatar">甜</span></div></header>
+      <div class="page-container">
+        <section id="view-home" class="view active-view" aria-labelledby="home-heading">
+          <div class="eyebrow">AI-ASSISTED SOFTWARE PORTFOLIO <span class="eyebrow-line"></span> 2026</div>
+          <section class="hero"><div class="hero-copy"><div class="hero-pill"><span class="pill-dot"></span> CLASS PROJECT · 2026</div><p class="hero-pretitle">你好，我是汤甜甜，欢迎来到我的课程作品集</p><h1 id="home-heading">从一个想法，<br/><em>到能用的作品。</em></h1><p class="hero-description">这是我的生成式大模型辅助编程与软件工程实训项目。我将任务管理、Markdown 笔记、天气查询与个人作品展示整合为网站，通过需求设计、代码开发与测试文档展示完整的软件工程交付。</p><div class="hero-actions"><a href="#home-projects" class="btn btn-white">浏览实训作品 <svg class="ic"><use href="#i-arrow"/></svg></a><a href="#tasks" class="btn btn-outline-white">体验待办应用</a></div></div><div class="hero-decoration" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="hero-node n1"></div><div class="hero-node n2"></div><div class="hero-node n3"></div><div class="hero-node n4"></div><div class="hero-monogram">T</div></div><span class="hero-footnote">DESIGN · BUILD · TEST · DELIVER</span></section>
+          <div class="quick-stats"><div class="stat-block"><div class="stat-icon blue"><svg class="ic"><use href="#i-book"/></svg></div><div><strong>04 <span>个模块</span></strong><small>作品集 · 待办 · 笔记 · 天气</small></div></div><div class="stat-block"><div class="stat-icon violet"><svg class="ic"><use href="#i-grid"/></svg></div><div><strong>05 <span>份文档</span></strong><small>完整工程验收文档</small></div></div><div class="stat-block"><div class="stat-icon green"><svg class="ic"><use href="#i-check"/></svg></div><div><strong>24 <span>项测试</span></strong><small>自动化核心单元测试</small></div></div></div>
+          <div class="section-heading" id="home-projects"><div><span class="section-kicker">PROJECT SHOWCASE</span><h2>实训作品展示</h2></div><span class="heading-caption">点击导航即可体验主要功能</span></div>
+          <div class="project-grid">
+            <article class="project-card"><div class="project-top"><span class="project-num">01 / TASK MANAGER</span><a href="#tasks" class="project-arrow" aria-label="体验待办应用">↗</a></div><div class="project-visual visual-blue"><div class="mini-dashboard"><div class="mini-dash-top"><i></i><i></i><i></i></div><div class="mini-dash-line"><b></b><span></span></div><div class="mini-dash-line"><b></b><span></span></div><div class="mini-dash-line"><b></b><span></span></div></div></div><div class="project-copy"><div class="project-tag">核心作品 · 实训考核节点</div><h3>进阶待办事项应用</h3><p>支持添加、编辑、完成与删除任务，具备优先级、截止日期、搜索筛选、进度统计和本地备份能力。</p><div class="tag-row"><span>JavaScript</span><span>LocalStorage</span><span>CRUD</span></div></div></article>
+            <article class="project-card"><div class="project-top"><span class="project-num">02 / MARKDOWN NOTES</span><a href="#notes" class="project-arrow" aria-label="体验笔记应用">↗</a></div><div class="project-visual visual-mint"><svg class="route-graphic" viewBox="0 0 320 150" aria-hidden="true"><rect x="53" y="18" width="214" height="116" rx="12" fill="#fff" opacity=".92"/><path d="M76 47h80M76 68h164M76 89h129M76 110h155" stroke="#1b927f" stroke-width="8" stroke-linecap="round" opacity=".7"/><path d="M210 45h30M210 55h30" stroke="#8ad4ba" stroke-width="3"/></svg><span class="visual-label">WRITE · PREVIEW · SAVE</span></div><div class="project-copy"><div class="project-tag">功能拓展 · 笔记管理</div><h3>Markdown学习笔记</h3><p>支持新建、编辑、实时预览和自动保存笔记，并可导出 Markdown 文件；预览内容进行安全转义。</p><div class="tag-row"><span>Markdown</span><span>Preview</span><span>Storage</span></div></div></article>
+            <article class="project-card"><div class="project-top"><span class="project-num">03 / WEATHER APP</span><a href="#weather" class="project-arrow" aria-label="体验天气查询">↗</a></div><div class="project-visual visual-lavender"><div class="weather-art" aria-hidden="true">☀<span>22°</span></div></div><div class="project-copy"><div class="project-tag">API实践 · 外部数据</div><h3>城市天气查询</h3><p>通过公开天气API查询城市气温、湿度和未来预报，并对超时、网络错误及未知城市给出明确提示。</p><div class="tag-row"><span>Fetch API</span><span>Open-Meteo</span><span>Error Handling</span></div></div></article>
+          </div>
+          <div class="section-heading about-heading"><div><span class="section-kicker">DEVELOPMENT PROCESS</span><h2>项目说明</h2></div></div>
+          <div class="about-grid"><div class="about-card"><span class="about-index">01 / REQUIREMENTS</span><h3>需求分析</h3><p>以实训方案为依据，梳理个人作品集、待办应用、笔记工具和天气查询的可验证功能需求。</p></div><div class="about-card"><span class="about-index">02 / ENGINEERING</span><h3>工程实现</h3><p>基于 HTML、CSS 和 JavaScript 构建响应式网页，通过模块化代码与浏览器本地存储实现交互。</p></div><div class="about-card"><span class="about-index">03 / QUALITY</span><h3>测试与交付</h3><p>对任务操作和输入安全进行自动化测试，并提供规格、设计、测试、部署与操作五类文档。</p></div></div>
+          <div class="section-heading"><div><span class="section-kicker">SUBMISSION MATERIALS</span><h2>项目文档与交付</h2></div><span class="heading-caption">网页与工程资料均可公开访问</span></div>
+          <div class="deliverables-grid">
+            <a class="deliverable-card" href="deliverables/课程实训报告.pdf" target="_blank" rel="noopener"><strong>课程实训报告</strong><span>项目背景、功能、技术架构与测试结果 ↗</span></a>
+            <a class="deliverable-card" href="docs/01_软件规格说明书.pdf" target="_blank" rel="noopener"><strong>软件规格说明书</strong><span>需求清单与验收标准 ↗</span></a>
+            <a class="deliverable-card" href="docs/02_技术设计说明书.pdf" target="_blank" rel="noopener"><strong>技术设计说明书</strong><span>模块结构和关键实现 ↗</span></a>
+            <a class="deliverable-card" href="docs/03_软件测试说明书.pdf" target="_blank" rel="noopener"><strong>软件测试说明书</strong><span>用例、测试证据与边界 ↗</span></a>
+            <a class="deliverable-card" href="docs/04_项目部署说明书.pdf" target="_blank" rel="noopener"><strong>项目部署说明书</strong><span>GitHub Pages和本地启动 ↗</span></a>
+            <a class="deliverable-card" href="docs/05_软件操作手册.pdf" target="_blank" rel="noopener"><strong>软件操作手册</strong><span>网页各功能操作步骤 ↗</span></a>
+            <a class="deliverable-card" href="deliverables/实训要求符合性核查.pdf" target="_blank" rel="noopener"><strong>实训要求核查表</strong><span>对应考核节点及项目证据 ↗</span></a>
+            <a class="deliverable-card" href="https://github.com/ZhijianLuan-77/---" target="_blank" rel="noopener noreferrer"><strong>公开源代码仓库</strong><span>HTML、CSS、JavaScript与Python ↗</span></a>
+          </div>
+          <footer class="page-footer">© 2026 汤甜甜 · 生成式大模型辅助编程与软件工程实践实训项目 · 源代码托管于 GitHub</footer>
+        </section>
+        <section id="view-tasks" class="view" aria-labelledby="tasks-heading" hidden>
+          <div class="page-intro"><div><span class="section-kicker">TASK MANAGEMENT</span><h1 id="tasks-heading">任务清单 <span class="title-accent">/ 聚焦当下</span></h1><p>把目标拆解为可执行的行动，让每一个进展都有迹可循。</p></div><button class="btn btn-primary" id="toggle-task-form"><svg class="ic"><use href="#i-plus"/></svg> 创建任务</button></div>
+          <div class="task-stats"><div class="metric-card"><span>全部任务</span><strong id="metric-total">0</strong><small>ALL TASKS</small></div><div class="metric-card"><span>待完成</span><strong id="metric-active">0</strong><small>IN PROGRESS</small></div><div class="metric-card"><span>已完成</span><strong id="metric-done">0</strong><small>COMPLETED</small></div><div class="metric-card metric-progress"><span>完成进度</span><strong id="metric-rate">0%</strong><div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div></div></div>
+          <form id="task-form" class="panel task-form" hidden><h2 id="task-form-title">创建新任务</h2><div class="form-grid"><label class="field span-2"><span>任务名称 <b>*</b></span><input id="task-title" maxlength="120" required placeholder="例如：完成研究进展报告"/></label><label class="field span-2"><span>任务说明</span><textarea id="task-description" maxlength="500" rows="2" placeholder="补充事项描述（选填）"></textarea></label><label class="field"><span>优先级</span><select id="task-priority"><option value="medium">中优先级</option><option value="high">高优先级</option><option value="low">低优先级</option></select></label><label class="field"><span>截止日期</span><input id="task-due" type="date"/></label></div><div class="form-actions"><button type="button" class="btn btn-ghost" id="cancel-task">取消</button><button class="btn btn-primary" type="submit">保存任务</button></div></form>
+          <section class="panel task-list-panel"><div class="panel-head"><div><h2>我的任务</h2><p id="task-summary">正在加载</p></div><div class="panel-actions"><button class="subtle-btn" id="task-export" title="导出任务数据"><svg class="ic"><use href="#i-download"/></svg> 导出</button><button class="subtle-btn" id="task-import" title="导入任务数据"><svg class="ic"><use href="#i-upload"/></svg> 导入</button><input id="task-file" type="file" accept="application/json,.json" hidden/></div></div><div class="task-toolbar"><div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="task-search" type="search" placeholder="搜索任务名称或说明" aria-label="搜索任务" /></div><div class="filter-chips" role="group" aria-label="按状态筛选"><button class="chip selected" data-filter="all" aria-pressed="true">全部</button><button class="chip" data-filter="active" aria-pressed="false">进行中</button><button class="chip" data-filter="done" aria-pressed="false">已完成</button></div><label class="sort-wrap"><span>排序</span><select id="task-sort" aria-label="任务排序"><option value="created">最新创建</option><option value="priority">优先级</option><option value="due">截止日期</option></select></label></div><div id="task-list" class="task-items" aria-live="polite"></div><div class="panel-footer"><span id="task-footer-count">0 项任务</span><button id="clear-completed" class="text-action" type="button">清除已完成任务</button></div></section>
+        </section>
+        <section id="view-notes" class="view" aria-labelledby="notes-heading" hidden><div class="page-intro"><div><span class="section-kicker">KNOWLEDGE NOTES</span><h1 id="notes-heading">知识笔记 <span class="title-accent">/ 沉淀思考</span></h1><p>使用 Markdown 记录想法，即时预览，自动在本地保存。</p></div><button class="btn btn-primary" id="new-note"><svg class="ic"><use href="#i-plus"/></svg> 新建笔记</button></div><div class="notes-workspace"><aside class="panel notes-side"><div class="notes-side-head"><h2>全部笔记</h2><span id="note-count" class="count-pill">0</span></div><div id="note-list" class="notes-list" role="listbox" aria-label="笔记列表"></div><button class="subtle-btn" id="export-notes"><svg class="ic"><use href="#i-download"/></svg> 导出当前笔记 .md</button></aside><div class="panel editor-panel"><div class="editor-toolbar"><label class="field"><span>笔记标题</span><input id="note-title" maxlength="100" placeholder="输入笔记标题" /></label><div class="editor-actions"><span class="autosave-status" id="save-status">本地自动保存</span><button id="delete-note" class="icon-btn danger" title="删除笔记" aria-label="删除笔记"><svg class="ic"><use href="#i-trash"/></svg></button></div></div><div class="editor-tabs" role="tablist" aria-label="笔记模式"><button data-note-tab="edit" class="editor-tab selected" role="tab" aria-selected="true">Markdown 编辑</button><button data-note-tab="preview" class="editor-tab" role="tab" aria-selected="false">实时预览</button></div><div class="editor-body"><textarea id="note-content" spellcheck="false" aria-label="Markdown笔记内容" placeholder="# 开始你的笔记&#10;&#10;支持标题、列表、**加粗**、链接、代码块等常用 Markdown 语法。"></textarea><article id="note-preview" class="markdown-preview" aria-label="Markdown 预览" hidden></article></div><div class="editor-bottom"><span>支持常用 Markdown 语法</span><span id="note-words">0 字</span></div></div></div></section>
+        <section id="view-weather" class="view" aria-labelledby="weather-heading" hidden><div class="page-intro"><div><span class="section-kicker">LIVE WEATHER SERVICE</span><h1 id="weather-heading">天气查询 <span class="title-accent">/ 掌握变化</span></h1><p>实时请求 Open-Meteo 公开天气接口，展示当前情况与未来四天预报。</p></div></div><div class="weather-layout"><div class="panel weather-search-panel"><form id="weather-form" class="weather-form"><label class="field"><span>选择城市</span><div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="weather-city" required maxlength="80" placeholder="输入城市，例如 大连 / Wuhan"/></div></label><button class="btn btn-primary" type="submit" id="weather-submit">查询天气 <svg class="ic"><use href="#i-arrow"/></svg></button></form><div class="city-shortcuts"><span>快捷城市</span><button data-city="大连">大连</button><button data-city="武汉">武汉</button><button data-city="鞍山">鞍山</button></div><p class="weather-credit">数据来源：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo <svg class="ic"><use href="#i-external"/></svg></a>。天气查询需要网络连接，结果仅作信息参考。</p></div><div id="weather-result" aria-live="polite"><div class="weather-placeholder"><div class="weather-placeholder-icon"><svg class="ic"><use href="#i-sun"/></svg></div><h2>天气，从这里开始</h2><p>搜索城市以获取真实天气数据。系统不使用模拟天气冒充实时结果。</p></div></div></div></section>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
