@@ -1,0 +1,73 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>01_软件规格说明书 · 汤甜甜</title><style>body{max-width:850px;margin:0 auto;padding:52px 36px;font:16px/1.9 "Noto Serif CJK SC","Microsoft Yahei",sans-serif;color:#282828;background:#fff;}header{border-bottom:1px solid #aaa;margin-bottom:30px;padding-bottom:14px;color:#64748b;font-size:13px;}h1{text-align:center;font-size:27px;margin:0 0 35px}h2{font-size:21px;margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd}h3{font-size:17px}p{margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left}th{background:#f5f5f5}a{color:#28547d;word-wrap:break-word}code{background:#f2f4f6;padding:2px 4px}footer{margin-top:45px;border-top:1px solid #ccc;padding-top:16px;color:#777;font-size:13px}@media(max-width:600px){body{padding:23px 16px;font-size:14px}table{display:block;overflow-x:auto}h1{font-size:23px}}@media print{body{max-width:none;padding:0}header nav{display:none}h2{break-after:avoid}tr{break-inside:avoid}}</style></head><body><header><nav><a href="../index.html#home">返回汤甜甜课程作品集</a></nav>生成式大模型辅助编程与软件工程实践 · 正式交付文档</header><h1>软件规格说明书</h1>
+<p><strong>项目名称：</strong> 汤甜甜 · AI 编程实践作品集<br />
+<strong>项目负责人：</strong> 汤甜甜<br />
+<strong>文档版本：</strong> V2.0<br />
+<strong>实训依据：</strong>《生成式大模型辅助编程与软件工程实践实训方案》（2026034版）</p>
+<h2>1 项目背景与目标</h2>
+<p>围绕实训方案提出的“需求澄清—方案设计—迭代开发—测试审查—版本管理—部署交付”，制作个人课程作品集网站，并提供可交互的进阶待办、Markdown笔记和天气查询模块。验收以实际网页操作、源代码检查、测试记录与部署证据为依据。</p>
+<h2>2 用户与使用场景</h2>
+<p>主要用户为学生本人及教师。教师通过浏览器查看个人项目与验收文档；学生通过待办记录任务，通过笔记整理课程知识，通过天气功能查询城市天气。无需注册账户，操作保持为单浏览器本地数据。</p>
+<h2>3 功能需求清单</h2>
+<table>
+<thead>
+<tr>
+  <th>编号</th>
+  <th>功能</th>
+  <th>验收判据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>F01</td>
+  <td>作品集首页</td>
+  <td>展示汤甜甜姓名、课程项目、三个可交互模块和文档入口</td>
+</tr>
+<tr>
+  <td>F02</td>
+  <td>基础待办</td>
+  <td>可以新建、查看、完成任务</td>
+</tr>
+<tr>
+  <td>F03</td>
+  <td>进阶待办</td>
+  <td>能修改、删除、设置优先级与截止日期，支持查询和筛选</td>
+</tr>
+<tr>
+  <td>F04</td>
+  <td>任务统计</td>
+  <td>能展示总任务、待完成、已完成和完成比例</td>
+</tr>
+<tr>
+  <td>F05</td>
+  <td>数据持久化</td>
+  <td>刷新页面后数据仍在，可用JSON导入导出备份</td>
+</tr>
+<tr>
+  <td>F06</td>
+  <td>Markdown笔记</td>
+  <td>新建、修改、删除、预览、自动保存和导出.md文件</td>
+</tr>
+<tr>
+  <td>F07</td>
+  <td>天气查询</td>
+  <td>查询城市当前天气和预报，网络异常显示失败原因</td>
+</tr>
+<tr>
+  <td>F08</td>
+  <td>移动端兼容</td>
+  <td>适配窄屏，导航与主要交互可用</td>
+</tr>
+<tr>
+  <td>F09</td>
+  <td>项目资料查看</td>
+  <td>公开网站可直接打开实训报告、五类工程文档与代码库</td>
+</tr>
+</tbody>
+</table>
+<h2>4 非功能需求</h2>
+<p><strong>稳定性：</strong> 页面模块加载正常，合法输入与异常输入均有处理；<strong>易用性：</strong> 主要功能无需教程即可操作，删除等高风险操作有确认；<strong>隐私性：</strong> 待办与笔记不上传到服务器；<strong>可测试性：</strong> 核心业务规则提供自动化测试；<strong>可部署性：</strong> 前端静态资源使用相对路径，可放入GitHub Pages。</p>
+<h2>5 数据处理与边界</h2>
+<p>任务与笔记保存在当前浏览器的localStorage，不支持跨设备账户同步；换浏览器、清理网站数据会导致原本地数据不可见。天气使用Open-Meteo公共接口，请求需联网；“实时天气”指接口提供的最近观测/模型数据，不保证实时刷新频率。Markdown为基础语法安全子集。</p>
+<h2>6 验收结论口径</h2>
+<p>“功能完成”由页面行为和测试支持；零代码平台课堂使用、Cursor个人操作、现场问卷、考勤，以及尚未获得证据的步骤，不应以网站上线代替。</p>
+<footer>© 2026 汤甜甜 · 本网页提供在线阅读，正式PDF版本随交付压缩包提供。</footer></body></html>

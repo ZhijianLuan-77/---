@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>07_实训方案逐项符合性核查 · 汤甜甜</title><style>body{max-width:850px;margin:0 auto;padding:52px 36px;font:16px/1.9 "Noto Serif CJK SC","Microsoft Yahei",sans-serif;color:#282828;background:#fff;}header{border-bottom:1px solid #aaa;margin-bottom:30px;padding-bottom:14px;color:#64748b;font-size:13px;}h1{text-align:center;font-size:27px;margin:0 0 35px}h2{font-size:21px;margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd}h3{font-size:17px}p{margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left}th{background:#f5f5f5}a{color:#28547d;word-wrap:break-word}code{background:#f2f4f6;padding:2px 4px}footer{margin-top:45px;border-top:1px solid #ccc;padding-top:16px;color:#777;font-size:13px}@media(max-width:600px){body{padding:23px 16px;font-size:14px}table{display:block;overflow-x:auto}h1{font-size:23px}}@media print{body{max-width:none;padding:0}header nav{display:none}h2{break-after:avoid}tr{break-inside:avoid}}</style></head><body><header><nav><a href="../index.html#home">返回汤甜甜课程作品集</a></nav>生成式大模型辅助编程与软件工程实践 · 正式交付文档</header><h1>实训方案逐项符合性核查</h1>
+<p>项目：知行·个人研究与效率工作台；依据：生成式大模型辅助编程与软件工程实践实训方案（2026034版）；核查日期：2026-10-12。</p>
+<h2>1. 总体判断</h2>
+<p>离线项目已实现实训方案列出的四类网页功能，提供Python本地HTTP服务、五类工程文档、24项单元测试与6项HTTP资源加载检查。</p>
+<p>软件部分已具备相应交付文件。零代码平台操作、Cursor实操、Git版本历史、上线和问卷考勤，需要本人在课堂中完成。</p>
+<h2>2. 按课程文本逐项对照</h2>
+<table>
+<thead>
+<tr>
+  <th>实训方案事项</th>
+  <th>现有交付证据</th>
+  <th>核查结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>第1次：使用AI零代码平台生成待办网页</td>
+  <td>当前有可运行的待办网页，但不包含教师指定零代码平台的真实项目记录</td>
+  <td>网页功能已实现；零代码操作待现场完成</td>
+</tr>
+<tr>
+  <td>第2次：AI编程工具、Cursor、Agent与上下文</td>
+  <td>含代码、工具知识复习材料；无Cursor实操记录</td>
+  <td>理论材料具备；工具操作待现场完成</td>
+</tr>
+<tr>
+  <td>第4/5次：需求、提示词、Bug排查、Git、部署及技术栈</td>
+  <td>需求设计、单元测试、真实HTTP检查、部署文档；无真实Git历史</td>
+  <td>工程文件具备；真实版本记录待完成</td>
+</tr>
+<tr>
+  <td>第六/七次：进阶待办事项</td>
+  <td>CRUD、字段校验、优先级/期限、筛选、统计和备份</td>
+  <td>已实现</td>
+</tr>
+<tr>
+  <td>第六/七次：个人作品集</td>
+  <td>首页、研究项目卡片、导航、响应式布局</td>
+  <td>已实现；公网链接待完成</td>
+</tr>
+<tr>
+  <td>第六/七次：Markdown笔记</td>
+  <td>创建编辑删除、预览、安全转义、导出</td>
+  <td>已实现</td>
+</tr>
+<tr>
+  <td>第六/七次：天气查询</td>
+  <td>使用Open-Meteo接口；有模拟响应的浏览器测试</td>
+  <td>页面与逻辑已实现；真实外网调用待本人确认</td>
+</tr>
+<tr>
+  <td>项目验收：提交源代码和五份文档</td>
+  <td>src、index.html、docs中的规格/技术/测试/部署/操作文档</td>
+  <td>已具备</td>
+</tr>
+<tr>
+  <td>Docker技术工具</td>
+  <td>Dockerfile、.dockerignore和使用指令</td>
+  <td>已配置；容器运行未验证</td>
+</tr>
+<tr>
+  <td>能力节点问卷、考勤与答辩</td>
+  <td>题目复习材料、答辩提纲和报告</td>
+  <td>现场考试及行政过程待完成</td>
+</tr>
+</tbody>
+</table>
+<h2>3. 关于Python与Java</h2>
+<p>课程方案第5页明确写“Python、HTML/CSS/JavaScript（或TypeScript）”。其“JavaScript”不是“Java”。本项目使用Python 3标准库提供本地HTTP服务，浏览器内业务逻辑使用JavaScript实现，符合该技术清单；不要求额外实现Java项目。不能将Python服务器启动脚本描述为Python业务后端。</p>
+<h2>4. 验收前必须做的实际操作</h2>
+<ol>
+<li>在自己的电脑完成网站启动，观察终端实际端口，不要关闭服务窗口。</li>
+<li>完成教师指定零代码平台的待办网页，并保留实际项目链接或截图。</li>
+<li>在Cursor中实际打开工程、使用AI辅助功能并保留操作记录。</li>
+<li>使用自己的GitHub仓库提交源码，以真实提交历史和工作流结果为证据；需要上线时提交实际GitHub Pages/Vercel链接。</li>
+<li>在目标网络检查真实天气请求，在目标电脑尝试Docker构建和运行（如教师要求）。</li>
+<li>准备五个重要能力节点的现场问卷，以及课程要求的项目答辩与考勤。</li>
+</ol>
+<h2>5. 评分方式</h2>
+<p>方案第6页给出的评分因素为节点质量考评40%、节点问卷考评40%、行政评分20%。个别说明文字出现不一致比例，按“权重”列进行理解；实际评分以任课教师公布的最终细则为准。</p>
+<footer>© 2026 汤甜甜 · 本网页提供在线阅读，正式PDF版本随交付压缩包提供。</footer></body></html>

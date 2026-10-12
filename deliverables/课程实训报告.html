@@ -1,0 +1,63 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>课程实训报告 · 汤甜甜</title><style>body{max-width:850px;margin:0 auto;padding:52px 36px;font:16px/1.9 "Noto Serif CJK SC","Microsoft Yahei",sans-serif;color:#282828;background:#fff;}header{border-bottom:1px solid #aaa;margin-bottom:30px;padding-bottom:14px;color:#64748b;font-size:13px;}h1{text-align:center;font-size:27px;margin:0 0 35px}h2{font-size:21px;margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd}h3{font-size:17px}p{margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left}th{background:#f5f5f5}a{color:#28547d;word-wrap:break-word}code{background:#f2f4f6;padding:2px 4px}footer{margin-top:45px;border-top:1px solid #ccc;padding-top:16px;color:#777;font-size:13px}@media(max-width:600px){body{padding:23px 16px;font-size:14px}table{display:block;overflow-x:auto}h1{font-size:23px}}@media print{body{max-width:none;padding:0}header nav{display:none}h2{break-after:avoid}tr{break-inside:avoid}}</style></head><body><header><nav><a href="../index.html#home">返回汤甜甜课程作品集</a></nav>生成式大模型辅助编程与软件工程实践 · 正式交付文档</header><h1>生成式大模型辅助编程与软件工程实践实训报告</h1>
+<p><strong>项目名称：</strong> 汤甜甜 · AI编程实践作品集<br />
+<strong>学生姓名：</strong> 汤甜甜<br />
+<strong>实训性质：</strong> 项目制软件工程实践<br />
+<strong>项目日期：</strong> 2026年10月12日</p>
+<h2>摘要</h2>
+<p>本项目以课程实训方案为依据，开发可通过浏览器使用的个人作品集与效率管理平台。系统将进阶待办、Markdown笔记、城市天气查询及项目成果展示整合为单页网站，提供任务状态管理、分类筛选、数据持久化、笔记预览、外部API调用等功能。软件采用HTML/CSS/JavaScript实现前端，使用Python为本地测试提供HTTP服务，并以自动化单元测试及规范工程文档形成可复现的软件交付证据。已完成24项JavaScript单元测试与6项真实HTTP静态资源检查。课程指定平台操作和问卷等环节仍应按教学组织另行完成。</p>
+<p><strong>关键词：</strong> 生成式大模型；AI辅助编程；软件工程；任务管理；个人作品集</p>
+<h2>1 实训任务和需求分析</h2>
+<p>依据《生成式大模型辅助编程与软件工程实践实训方案》（2026034版）第3—5页，课程关注从需求分析到测试交付的完整工程闭环。学生需要完成基础待办、进阶待办与个人作品集网站；第二周实训表还列出Markdown笔记与天气查询。方案第5页将规格、技术、测试、部署、操作五类文档作为项目验收依据。项目据此确定四个可演示模块，统一通过网站入口访问，并为工程资料提供在线PDF链接。</p>
+<h2>2 系统总体设计</h2>
+<p>系统采用静态单页架构。<code>index.html</code>定义页面布局和导航，<code>src/styles.css</code>负责响应式与主题设计，<code>src/app.js</code>管理交互事件和天气API请求，<code>src/core.js</code>包含可测试业务函数，<code>src/storage.js</code>封装本地数据持久化。结构避免引入不必要的后端依赖，便于在GitHub Pages部署。</p>
+<h2>3 功能设计与实现</h2>
+<h3>3.1 个人作品集</h3>
+<p>首页以汤甜甜的课程实训项目为主体，展示项目简介、三个软件功能的案例卡片、需求—实现—测试的工程流程，以及公开课程资料下载入口。首页不使用他人的科研或学术经历。</p>
+<h3>3.2 进阶待办事项</h3>
+<p>实现创建、修改、完成、删除任务；支持标题、说明、截止日期和优先级等字段，提供全文搜索、状态筛选、排序及统计。任务数据由浏览器localStorage保存，并支持JSON格式备份与恢复。</p>
+<h3>3.3 Markdown笔记</h3>
+<p>笔记模块支持新建、编辑、删除、预览和Markdown导出。对输入的HTML字符进行转义，并限制可点击链接协议，避免以原始HTML方式运行用户笔记内容。</p>
+<h3>3.4 城市天气查询</h3>
+<p>先通过Open-Meteo地理编码接口定位城市，再请求当前天气和未来四天预报。对网络失败、接口异常和地点不存在提供用户可识别的提示；真实天气数据依赖联网环境。</p>
+<h2>4 软件测试与质量控制</h2>
+<p>核心业务逻辑使用Node.js内置测试运行器，共执行24项单元测试，全部通过。额外启动Python HTTP服务，对首页、JavaScript模块、CSS文件与图标进行6项资源请求测试，全部通过。项目采用相对路径组织静态资源，适合GitHub Pages环境。浏览器互动和模拟天气测试不能替代上线后的实际公网检查。</p>
+<h2>5 AI协同开发与工程管理</h2>
+<p>AI工具用于需求拆解、代码构造建议、缺陷排查和文档整理；工程验收以可执行代码和测试结果为准。正式部署需要GitHub代码仓库和Pages发布设置。该过程体现“学生主导、AI协同、证据评价”的课程理念，但不等于已完成本人课堂中的指定零代码平台、Cursor操作和节点问卷。</p>
+<h2>6 成果、应用边界与结论</h2>
+<p>本项目形成一个可部署的个人课程作品网站、三个交互子模块、完整源码及五类验收文档。网站能够通过单个公开入口展示运行功能和工程证据，适合课堂演示与验收。任务笔记仅存于当前浏览器，本项目未提供账户登录和跨设备同步功能。最后仍需在教师指定平台完成现场操作、节点考试与现场答辩。</p>
+<h2>附录：交付文件索引</h2>
+<table>
+<thead>
+<tr>
+  <th>项目</th>
+  <th>位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>网页首页</td>
+  <td><code>index.html</code></td>
+</tr>
+<tr>
+  <td>前端业务代码</td>
+  <td><code>src/</code></td>
+</tr>
+<tr>
+  <td>项目源码仓库</td>
+  <td><a href="https://github.com/ZhijianLuan-77/---">https://github.com/ZhijianLuan-77/---</a></td>
+</tr>
+<tr>
+  <td>五类工程文档</td>
+  <td><code>docs/01</code>至<code>docs/05</code></td>
+</tr>
+<tr>
+  <td>自动化测试</td>
+  <td><code>tests/core.test.mjs</code>、<code>tests/http_smoke.py</code></td>
+</tr>
+<tr>
+  <td>部署及运行指南</td>
+  <td><code>README.md</code>与<code>docs/04_项目部署说明书.pdf</code></td>
+</tr>
+</tbody>
+</table>
+<footer>© 2026 汤甜甜 · 本网页提供在线阅读，正式PDF版本随交付压缩包提供。</footer></body></html>

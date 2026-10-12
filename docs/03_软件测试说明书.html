@@ -1,0 +1,102 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03_软件测试说明书 · 汤甜甜</title><style>body{max-width:850px;margin:0 auto;padding:52px 36px;font:16px/1.9 "Noto Serif CJK SC","Microsoft Yahei",sans-serif;color:#282828;background:#fff;}header{border-bottom:1px solid #aaa;margin-bottom:30px;padding-bottom:14px;color:#64748b;font-size:13px;}h1{text-align:center;font-size:27px;margin:0 0 35px}h2{font-size:21px;margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd}h3{font-size:17px}p{margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left}th{background:#f5f5f5}a{color:#28547d;word-wrap:break-word}code{background:#f2f4f6;padding:2px 4px}footer{margin-top:45px;border-top:1px solid #ccc;padding-top:16px;color:#777;font-size:13px}@media(max-width:600px){body{padding:23px 16px;font-size:14px}table{display:block;overflow-x:auto}h1{font-size:23px}}@media print{body{max-width:none;padding:0}header nav{display:none}h2{break-after:avoid}tr{break-inside:avoid}}</style></head><body><header><nav><a href="../index.html#home">返回汤甜甜课程作品集</a></nav>生成式大模型辅助编程与软件工程实践 · 正式交付文档</header><h1>软件测试说明书</h1>
+<p><strong>项目名称：</strong> 汤甜甜 · AI编程实践作品集<br />
+<strong>执行环境：</strong> Node.js / Python HTTP服务<br />
+<strong>文档版本：</strong> V2.0</p>
+<h2>1 测试目标</h2>
+<p>验证核心业务规则、错误处理与部署资源完整性，为课程软件交付提供可重复的结果证据。</p>
+<h2>2 测试方法与环境</h2>
+<p>执行<code>node --test tests/*.test.mjs</code>检查核心JavaScript纯函数；执行<code>python tests/http_smoke.py</code>在真实本地HTTP服务下检查主页、3个JavaScript资源、CSS和SVG图标。天气API使用模拟响应进行隔离测试，未据此声称真实联网查询已通过。</p>
+<h2>3 测试结果摘要</h2>
+<table>
+<thead>
+<tr>
+  <th>测试类别</th>
+  <th style="text-align:right">已运行数量</th>
+  <th>结果</th>
+  <th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>核心单元测试</td>
+  <td style="text-align:right">24</td>
+  <td>24通过，0失败</td>
+  <td>通过</td>
+</tr>
+<tr>
+  <td>HTTP资源检查</td>
+  <td style="text-align:right">6</td>
+  <td>6通过</td>
+  <td>通过</td>
+</tr>
+<tr>
+  <td>真实第三方天气查询</td>
+  <td style="text-align:right">—</td>
+  <td>未在当前测试环境作端到端联网确认</td>
+  <td>待发布后实测</td>
+</tr>
+<tr>
+  <td>Docker实际容器运行</td>
+  <td style="text-align:right">—</td>
+  <td>提供Dockerfile但未验证容器运行</td>
+  <td>非必需补充</td>
+</tr>
+</tbody>
+</table>
+<h2>4 典型测试用例</h2>
+<table>
+<thead>
+<tr>
+  <th>编号</th>
+  <th>场景</th>
+  <th>预期结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>T01</td>
+  <td>新建合法任务</td>
+  <td>生成任务并正确展示</td>
+</tr>
+<tr>
+  <td>T02</td>
+  <td>空名称或非法日期</td>
+  <td>拒绝不合法输入</td>
+</tr>
+<tr>
+  <td>T03</td>
+  <td>按关键字搜索/状态筛选</td>
+  <td>结果集合符合条件</td>
+</tr>
+<tr>
+  <td>T04</td>
+  <td>任务完成或重新打开</td>
+  <td>统计随状态更新</td>
+</tr>
+<tr>
+  <td>T05</td>
+  <td>导入结构异常JSON</td>
+  <td>给出提示且不覆盖合法数据</td>
+</tr>
+<tr>
+  <td>T06</td>
+  <td>Markdown文本中包含脚本内容</td>
+  <td>预览不会执行脚本</td>
+</tr>
+<tr>
+  <td>T07</td>
+  <td>在窄屏下切换模块</td>
+  <td>导航及内容可操作</td>
+</tr>
+<tr>
+  <td>T08</td>
+  <td>天气API超时/拒绝</td>
+  <td>页面显示错误提示，不伪造天气</td>
+</tr>
+</tbody>
+</table>
+<h2>5 局限与改进</h2>
+<p>浏览器交互测试曾使用隔离脚本注入和天气模拟数据，不等同于线上端到端真实API调用。正式发布后，须使用非登录浏览器窗口打开公开网址，分别点击四个模块、打开所有PDF下载链接，并实测天气查询。</p>
+<h2>6 复现实验</h2>
+<p>本地进入含<code>package.json</code>的根目录，运行<code>npm test</code>；再执行<code>python tests/http_smoke.py</code>。终端结果保存在<code>tests/单元测试结果.txt</code>及<code>tests/HTTP服务测试结果.txt</code>，以执行时输出为准。</p>
+<footer>© 2026 汤甜甜 · 本网页提供在线阅读，正式PDF版本随交付压缩包提供。</footer></body></html>

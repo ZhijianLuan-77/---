@@ -1,0 +1,41 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>06_答辩与AI协同记录 · 汤甜甜</title><style>body{max-width:850px;margin:0 auto;padding:52px 36px;font:16px/1.9 "Noto Serif CJK SC","Microsoft Yahei",sans-serif;color:#282828;background:#fff;}header{border-bottom:1px solid #aaa;margin-bottom:30px;padding-bottom:14px;color:#64748b;font-size:13px;}h1{text-align:center;font-size:27px;margin:0 0 35px}h2{font-size:21px;margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd}h3{font-size:17px}p{margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left}th{background:#f5f5f5}a{color:#28547d;word-wrap:break-word}code{background:#f2f4f6;padding:2px 4px}footer{margin-top:45px;border-top:1px solid #ccc;padding-top:16px;color:#777;font-size:13px}@media(max-width:600px){body{padding:23px 16px;font-size:14px}table{display:block;overflow-x:auto}h1{font-size:23px}}@media print{body{max-width:none;padding:0}header nav{display:none}h2{break-after:avoid}tr{break-inside:avoid}}</style></head><body><header><nav><a href="../index.html#home">返回汤甜甜课程作品集</a></nav>生成式大模型辅助编程与软件工程实践 · 正式交付文档</header><h1>实训成果展示与AI协同记录</h1>
+<p>项目：知行个人研究与效率工作台　　实训类型：生成式大模型辅助编程与软件工程实践</p>
+<h2>1. 答辩开场（核心主张）</h2>
+<p>“我的作品不是单独生成的静态网页，而是一套能够独立运行和验证的个人研究效率工作台。它围绕真实学习场景，把个人研究成果展示、进阶任务管理、Markdown笔记和城市天气查询整合为统一的响应式界面。关键价值在于：功能完整、数据可保留、接口能处理异常、业务规则能自动测试，并具备与需求对应的全套软件工程文档。”</p>
+<h2>2. 展示的三条最强证据</h2>
+<p>证据一：端到端业务闭环。任务从创建、修改、标记完成到检索统计和JSON备份形成可重复的交互流程；笔记从编辑到预览和持久化形成信息管理闭环。</p>
+<p>证据二：工程完整性。代码按UI、纯函数、存储和外部API分层；以HTML/CSS/JS原生模块实现，静态服务器即可启动，支持桌面和移动端。</p>
+<p>证据三：可验证结果。24条Node单元测试全部通过；Chromium浏览器交互检查覆盖核心操作、笔记安全预览和模拟天气响应；天气采用真实API接入而非伪造实况，联网验收须在实际部署环境继续验证。</p>
+<h2>3. 真实HTTP检查与容器配置的说明</h2>
+<p>新增 <code>tests/http_smoke.py</code>，已完成6项资源的真实HTTP 200检查；新增 <code>Dockerfile</code> 及GitHub Actions工作流配置，但不能把文件配置等同于实际Docker运行或已在GitHub成功执行。需要在自己的计算机/账号中完成现场验证与真实提交。</p>
+<h2>4. AI辅助任务与人工审查边界</h2>
+<p>AI辅助内容：理解课程PDF要求、将六个能力考核节点映射为验收清单、草拟模块方案、生成HTML/CSS/JavaScript初稿、构建函数级测试、协助整理工程文档和演示讲稿。</p>
+<p>需要学生本人负责的内容：复核需求优先级、理解任务与笔记持久化策略、阅读修改核心代码、独立解释业务规则、实际使用Git/Cursor工具、现场运行服务、真实联网验证天气、提交真实部署网址、完成节点问卷与课堂出勤。</p>
+<p>以下是<strong>可用于课堂复现实操的提示词范例</strong>，不伪称存在已经保存的Cursor会话记录：</p>
+<p>提示词A（需求）：按照FR-01至FR-12整理待办与作品集功能，输出验收条件，区分必须与扩展需求。</p>
+<p>提示词B（实现）：将任务校验、过滤排序、统计等规则抽离到不依赖DOM的core.js，实现浏览器localStorage存储，输入时先做校验，删除需要确认。</p>
+<p>提示词C（审查）：检查任务导入是否存在重复ID、非法日期、原始HTML注入，补充对应单元测试，列出风险而不是直接声称无BUG。</p>
+<p>提示词D（部署）：核查相对资源路径与静态托管要求，给出GitHub Pages和Vercel的部署检查步骤，禁止虚构公网访问地址。</p>
+<h2>5. 考核知识准备（精选15问）</h2>
+<ol>
+<li>什么是Vibe Coding？以自然语言主导、AI协同生成与调整软件，但仍需工程质量审查。</li>
+<li>大模型生成的代码能直接当成正确结果吗？不能；必须进行需求校验、单元测试、审查与真实环境验证。</li>
+<li>Chat与Agent有什么区别？Chat主要输出建议；Agent可围绕目标修改多个文件、执行工具并验证产出。</li>
+<li>什么是上下文管理？给AI提供相关需求、代码文件、限制与反馈，避免片段缺失。</li>
+<li>@引用的作用是什么？将指定文件、符号或上下文纳入当前开发任务（具体语法随工具而异）。</li>
+<li>Plan Mode的作用？先拆解任务与依赖、确定实施顺序再开展变更。</li>
+<li>MCP是什么？模型上下文协议，用于按规范连接外部工具与数据源。</li>
+<li>Agent Skills是什么？可复用的任务步骤、领域约束与工作流程说明。</li>
+<li>代码审查要检查什么？正确性、安全、边界条件、可维护性及与需求的一致性。</li>
+<li>Git与GitHub有何区别？Git是版本控制工具；GitHub是代码托管与协作平台。</li>
+<li>为什么需要浏览器HTTP服务？ES Module在file协议下可能因浏览器安全限制而加载失败。</li>
+<li>什么是localStorage？浏览器同源的键值存储；不是云数据库，多设备不自动同步。</li>
+<li>单元测试与端到端测试有何区别？前者验证独立函数，后者验证真实交互路径及组件协作。</li>
+<li>处理外部API失败的正确方法？记录失败状态、显示清晰错误、允许重试，不能冒充实时响应。</li>
+<li>为什么需求、技术、测试、部署、操作文档都重要？分别回答做什么、如何构建、如何验证、如何上线、如何使用。</li>
+</ol>
+<h2>6. 提交前不可省略的个人操作</h2>
+<p>本人实际启动网站；至少执行一次真实天气联网查询；在GitHub自行完成代码提交与部署并记录公开URL（如果教师要求）；使用Cursor/指定AI零代码平台完成课堂指定考核；准备五个能力节点的问卷；核对作品集公开的信息。以上不以生成文档代替真实参与。</p>
+<h2>7. 演示时的建议讲述重点</h2>
+<p>优先强调“功能可用→数据可靠→测试可证→工程可交付”；不逐文件介绍每段代码。演示时避免使用‘没有任何Bug’‘已公网部署’‘真实天气测试通过’等未被全面验证的结论。报告具体证据和可复现命令更有说服力。</p>
+<footer>© 2026 汤甜甜 · 本网页提供在线阅读，正式PDF版本随交付压缩包提供。</footer></body></html>

@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02_技术设计说明书 · 汤甜甜</title><style>body{max-width:850px;margin:0 auto;padding:52px 36px;font:16px/1.9 "Noto Serif CJK SC","Microsoft Yahei",sans-serif;color:#282828;background:#fff;}header{border-bottom:1px solid #aaa;margin-bottom:30px;padding-bottom:14px;color:#64748b;font-size:13px;}h1{text-align:center;font-size:27px;margin:0 0 35px}h2{font-size:21px;margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd}h3{font-size:17px}p{margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left}th{background:#f5f5f5}a{color:#28547d;word-wrap:break-word}code{background:#f2f4f6;padding:2px 4px}footer{margin-top:45px;border-top:1px solid #ccc;padding-top:16px;color:#777;font-size:13px}@media(max-width:600px){body{padding:23px 16px;font-size:14px}table{display:block;overflow-x:auto}h1{font-size:23px}}@media print{body{max-width:none;padding:0}header nav{display:none}h2{break-after:avoid}tr{break-inside:avoid}}</style></head><body><header><nav><a href="../index.html#home">返回汤甜甜课程作品集</a></nav>生成式大模型辅助编程与软件工程实践 · 正式交付文档</header><h1>技术设计说明书</h1>
+<p><strong>项目名称：</strong> 汤甜甜 · AI编程实践作品集<br />
+<strong>文档版本：</strong> V2.0</p>
+<h2>1 总体架构</h2>
+<p>项目采用静态单页网页结构。页面层由<code>index.html</code>构成；展示层为<code>src/styles.css</code>；交互控制由<code>src/app.js</code>负责；纯业务逻辑在<code>src/core.js</code>实现；本地数据在<code>src/storage.js</code>封装；后端数据库并非此实训站点的技术前提。</p>
+<table>
+<thead>
+<tr>
+  <th>层次</th>
+  <th>组件</th>
+  <th>责任</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>界面层</td>
+  <td>HTML/CSS</td>
+  <td>页面结构、适配和视觉交互</td>
+</tr>
+<tr>
+  <td>控制层</td>
+  <td>app.js</td>
+  <td>导航、事件处理、页面渲染、API请求</td>
+</tr>
+<tr>
+  <td>业务层</td>
+  <td>core.js</td>
+  <td>任务校验、排序筛选、Markdown安全渲染</td>
+</tr>
+<tr>
+  <td>数据层</td>
+  <td>storage.js</td>
+  <td>localStorage序列化、读取及异常回退</td>
+</tr>
+<tr>
+  <td>接口层</td>
+  <td>Open-Meteo API</td>
+  <td>城市地理编码、天气及未来四日预报</td>
+</tr>
+</tbody>
+</table>
+<h2>2 任务模块设计</h2>
+<p>数据模型包含任务ID、标题、描述、优先级、截止日期、完成状态及时间戳。用户提交后先校验字段，再更新内存任务列表并写入localStorage，随后重新渲染任务统计和列表。导入JSON文件时限制文件大小并验证结构，替换前提示用户确认。</p>
+<h2>3 笔记模块设计</h2>
+<p>通过唯一ID选中笔记，编辑内容即时保存。Markdown文本不作为原始HTML直接插入：先进行字符转义，再解析受支持语法；链接限制为HTTP/HTTPS协议，以降低脚本注入风险。</p>
+<h2>4 天气模块设计</h2>
+<p>先调用地理编码接口查询城市坐标，再请求天气预报API。设置请求超时与AbortController，统一处理网络异常、地点不存在和API字段缺失。任务及笔记不会发往天气服务。</p>
+<h2>5 质量与部署设计</h2>
+<p>使用Node.js内置测试运行器执行24项单元测试；Python启动本地HTTP服务并可进行6项静态资源HTTP检查。静态网页可以直接由GitHub Pages发布。<code>start_server.py</code>仅负责本地服务启动，网页交互的主体实现语言是JavaScript，而不是Python或Java。</p>
+<h2>6 版本控制</h2>
+<p>源代码提交于<code>https://github.com/ZhijianLuan-77/---</code>，正式公开网站地址记录在项目首页及最终提交说明中。使用独立课程项目目录，不改写账户中的其他科研或学习资料。</p>
+<footer>© 2026 汤甜甜 · 本网页提供在线阅读，正式PDF版本随交付压缩包提供。</footer></body></html>

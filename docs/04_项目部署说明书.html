@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>04_项目部署说明书 · 汤甜甜</title><style>body{max-width:850px;margin:0 auto;padding:52px 36px;font:16px/1.9 "Noto Serif CJK SC","Microsoft Yahei",sans-serif;color:#282828;background:#fff;}header{border-bottom:1px solid #aaa;margin-bottom:30px;padding-bottom:14px;color:#64748b;font-size:13px;}h1{text-align:center;font-size:27px;margin:0 0 35px}h2{font-size:21px;margin:38px 0 8px;padding-bottom:6px;border-bottom:1px solid #ddd}h3{font-size:17px}p{margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}th,td{padding:9px;border-bottom:1px solid #ddd;text-align:left}th{background:#f5f5f5}a{color:#28547d;word-wrap:break-word}code{background:#f2f4f6;padding:2px 4px}footer{margin-top:45px;border-top:1px solid #ccc;padding-top:16px;color:#777;font-size:13px}@media(max-width:600px){body{padding:23px 16px;font-size:14px}table{display:block;overflow-x:auto}h1{font-size:23px}}@media print{body{max-width:none;padding:0}header nav{display:none}h2{break-after:avoid}tr{break-inside:avoid}}</style></head><body><header><nav><a href="../index.html#home">返回汤甜甜课程作品集</a></nav>生成式大模型辅助编程与软件工程实践 · 正式交付文档</header><h1>项目部署说明书</h1>
+<p><strong>项目名称：</strong> 汤甜甜 · AI编程实践作品集<br />
+<strong>文档版本：</strong> V2.0</p>
+<h2>1 发布架构</h2>
+<p>本项目是无前端打包步骤的静态网站，GitHub Pages可托管<code>index.html</code>、<code>src</code>、<code>assets</code>及<code>docs</code>等资源。网页交互在浏览器运行，不要求公网服务器部署Python进程。</p>
+<h2>2 公网部署步骤</h2>
+<ol>
+<li>打开公开代码仓库：<code>https://github.com/ZhijianLuan-77/---</code>。</li>
+<li>确认默认<code>main</code>分支根目录存在<code>index.html</code>和所引用的相对路径资源。</li>
+<li>进入仓库<code>Settings</code> → <code>Pages</code>。</li>
+<li>在<code>Build and deployment</code>中选择<code>Deploy from a branch</code>，分支选择<code>main</code>，路径选择<code>/(root)</code>，点击<code>Save</code>。</li>
+<li>等待GitHub完成发布，在无登录浏览器窗口打开设置页面显示的Visit site网址。</li>
+<li>检查首页、待办、笔记、天气、五份工程文档及正式报告的链接是否返回200。</li>
+</ol>
+<p><strong>预期Pages格式：</strong> <code>https://zhijianluan-77.github.io/---/</code>；是否实际可用须由浏览器/网络测试确认，不能根据路径存在直接认定部署成功。</p>
+<h2>3 本地部署</h2>
+<p>安装Python 3，解压源码，在<code>index.html</code>所在目录运行<code>python start_server.py</code>，保持终端窗口打开；根据终端显示的端口访问本地网址。Windows也可双击<code>启动项目.bat</code>。</p>
+<h2>4 Docker（可选）</h2>
+<p>提供<code>Dockerfile</code>和<code>.dockerignore</code>，可使用<code>docker build -t tiantian-practicum .</code>及<code>docker run --rm -p 8000:8000 tiantian-practicum</code>尝试运行。课程网站不依赖Docker，当前文档不宣称已经完成真实Docker运行测试。</p>
+<h2>5 故障排查</h2>
+<p>“连接被拒绝”通常表示本地服务器未启动或端口与实际地址不同；页面无样式时核对资源相对路径及浏览器开发者工具Network；GitHub Pages出现404时先确认Pages已启用且已成功构建；天气失败时检查网络及Open-Meteo访问情况。注意使用非登录环境检查公开访问性。</p>
+<footer>© 2026 汤甜甜 · 本网页提供在线阅读，正式PDF版本随交付压缩包提供。</footer></body></html>

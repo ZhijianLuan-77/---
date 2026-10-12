@@ -1,12 +1,15 @@
-# 汤甜甜 · AI编程实训作品集
+# 汤甜甜 · AI编程实训课程作品集
 
-项目负责人：汤甜甜。使用HTML、CSS和JavaScript实现个人作品集、进阶待办事项、Markdown笔记、城市天气查询；使用Python本地HTTP服务测试。课程验收包含源码、五类工程文档和测试。
+本项目包含个人作品集首页、进阶待办、Markdown笔记、天气查询四个模块，以及软件规格、技术设计、软件测试、部署、操作手册五类工程文档。
 
-- 网站公开访问地址（启用 GitHub Pages 后）：https://zhijianluan-77.github.io/---/
-- 课程实训报告：`deliverables/课程实训报告.pdf`
-- 五类工程文档：`docs/01_软件规格说明书.pdf` 至 `docs/05_软件操作手册.pdf`
-- 本地运行：`python start_server.py`
-- 单元测试：`npm test`
-- HTTP检查：`python tests/http_smoke.py`
+**公开源码：** https://github.com/ZhijianLuan-77/---
 
-项目归属汤甜甜，使用经授权的GitHub账户进行托管。课堂零代码平台操作、Cursor工具考核、问卷、考勤仍需本人完成。公开网址需经真实访问确认。
+**GitHub Pages发布地址：** https://zhijianluan-77.github.io/---/ （须确认Settings → Pages配置和实际访问后方视为发布完成）。
+
+**运行：** `python start_server.py`（或Windows双击`启动项目.bat`）。
+
+**测试：** `npm test` 与 `python tests/http_smoke.py`。已核验24项单元测试和6项HTTP资源检查。
+
+课程报告和五类文档提供HTML线上阅读页面；PDF版本位于离线交付包。项目所有者：汤甜甜；代码托管账户经授权借用。此项目的界面及项目材料不含账户所有者本人的科研经历。
+
+**实际课程考核保留事项：** AI零代码平台实操、Cursor实际操作记录、节点问卷及现场答辩、出勤仍需学生本人完成。
