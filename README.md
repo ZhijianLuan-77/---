@@ -2,9 +2,9 @@
 
 本项目包含个人作品集首页、进阶待办、Markdown笔记、天气查询、倒计时和随机点名六个模块，以及软件规格、技术设计、软件测试、部署、操作手册五类工程文档。
 
-**公开源码：** https://github.com/ZhijianLuan-77/---
+**公开源码：** https://github.com/ZhijianLuan-77/TTT-homework
 
-**GitHub Pages发布地址：** https://zhijianluan-77.github.io/---/ （须确认Settings → Pages配置和实际访问后方视为发布完成）。
+**GitHub Pages发布地址：** https://zhijianluan-77.github.io/TTT-homework/ （须确认Settings → Pages配置和实际访问后方视为发布完成）。
 
 **运行：** `python start_server.py`（或Windows双击`启动项目.bat`）。
 
