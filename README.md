@@ -4,7 +4,9 @@
 
 **公开源码：** https://github.com/ZhijianLuan-77/TTT-homework
 
-**GitHub Pages发布地址：** https://zhijianluan-77.github.io/TTT-homework/ （须确认Settings → Pages配置和实际访问后方视为发布完成）。
+**Cloudflare Pages 部署地址：** https://ttt-homework.pages.dev/ （2026-10-16 Cloudflare 后台显示部署成功，需通过公开浏览器确认访问）。
+
+**备用 GitHub Pages 目标地址：** https://zhijianluan-77.github.io/TTT-homework/ （如未开启，则不是当前正式交付网址）。
 
 **运行：** `python start_server.py`（或Windows双击`启动项目.bat`）。
 
@@ -23,7 +25,7 @@
 - **限制说明：** 内容管理使用浏览器 `localStorage`，更新只保存于当前浏览器；它属于静态网站的演示型管理功能，不是带身份认证、数据库和跨设备同步的远程后台。
 - 新增 `tests/site-content.test.mjs` 对数据校验与本地保存行为提供自动化测试。
 
-### Vercel / Cloudflare Pages 部署
+### Cloudflare Pages 部署（已创建）
 
 在平台授权 GitHub 仓库 `ZhijianLuan-77/TTT-homework`，选用静态 HTML 项目（Other/None），不需要安装依赖或设置 build 命令，发布目录为仓库根目录。部署后应实际打开网站首页和 `/admin/` 验证，并将平台分配的可访问域名提交给老师。
 
