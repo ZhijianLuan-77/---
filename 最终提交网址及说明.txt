@@ -3,14 +3,14 @@
 项目学生：汤甜甜
 项目名称：AI编程实践作品集与效率管理平台
 
-【公网网站目标网址】
-https://zhijianluan-77.github.io/TTT-homework/
+【Cloudflare Pages 部署网址（平台显示成功）】
+https://ttt-homework.pages.dev/
 
 【GitHub公开源码仓库】
 https://github.com/ZhijianLuan-77/TTT-homework
 
 【提交前必须确认】
-仓库文件已经上传；GitHub Pages发布设置需要启用，并用未登录的浏览器打开上述网站进行访问验证。在此之前，不能将目标网址当作已经上线的验收结果。
+Cloudflare Pages 已显示部署成功，请使用未登录的浏览器打开上面的网站网址并验证首页、/admin/及主要功能。其他访客浏览器无法同步当前浏览器后台修改。
 
 网站首页包含作品集、进阶待办、Markdown笔记和城市天气查询；首页下方可打开课程实训报告、五类工程文档、要求核查和源码仓库。
 
