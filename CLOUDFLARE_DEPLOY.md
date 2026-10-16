@@ -2,7 +2,7 @@
 
 > 项目：汤甜甜的课程作品集  
 > 仓库：https://github.com/ZhijianLuan-77/TTT-homework  
-> 本文件是部署操作说明，并非已完成部署的证明。
+> Cloudflare 控制台已显示项目成功部署，实际公开地址由平台分配为：https://ttt-homework.pages.dev/ 。仍应从浏览器检查首页和管理页访问。
 
 ## 一、部署前确认
 
@@ -33,7 +33,7 @@
 
 **04 成功部署后网页截图：** 需要真实打开 Cloudflare 提供的网页。建议至少截取前台首页与 `/admin/`，让老师看到个人网站和可以调整介绍、技能、项目/博客的管理页面。管理员编辑内容暂存于当前浏览器，不是云端认证后台。
 
-**05 域名地址：** 填写 Cloudflare 控制台显示、已打开验证成功的完整 `https://....pages.dev/`，不要填写仓库网址和本地 `localhost`。
+**05 域名地址：** Cloudflare 分配网址是 `https://ttt-homework.pages.dev/`。提交前请从浏览器打开检查，不要使用仓库网址或 `localhost`。
 
 ## 四、验收说明
 
