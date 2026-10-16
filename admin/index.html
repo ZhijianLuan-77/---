@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#14223c"/>
+  <meta name="description" content="汤甜甜个人课程作品集本地内容管理"/>
+  <title>内容管理 · 汤甜甜作品集</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+  <a href="#content" class="skip">跳转到主要内容</a>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="../"><span class="logo">甜</span><span><strong>TIANTIAN</strong><small>CONTENT STUDIO</small></span></a>
+      <p class="side-label">WORKSPACE / 内容管理</p>
+      <nav id="tab-nav" class="nav" aria-label="管理菜单">
+        <button type="button" class="current" data-tab="dashboard">概览看板</button>
+        <button type="button" data-tab="profile">个人资料</button>
+        <button type="button" data-tab="skills">技能管理</button>
+        <button type="button" data-tab="projects">作品管理</button>
+        <button type="button" data-tab="posts">学习博客</button>
+        <button type="button" data-tab="settings">数据管理</button>
+      </nav>
+      <div class="sidebar-footer"><span class="dot"></span> 本地演示管理页 <p>修改仅影响当前浏览器；不提供账号认证或远程数据同步。</p></div>
+    </aside>
+    <main id="content" class="main">
+      <header class="header"><div class="crumb">TTT-HOMEWORK <span>/</span> CONTENT MANAGEMENT</div><div class="header-actions"><span class="mode">LOCAL · DEMO</span><a href="../" class="visit">访问个人主页 ↗</a></div></header>
+      <div class="main-inner">
+        <div class="topline"><span class="eyebrow">PORTFOLIO CONTENT SYSTEM · 2026</span><h1 id="page-title">内容管理概览</h1><p id="page-description">集中维护个人资料、学习技能、项目介绍及学习博客，在当前浏览器实时更新前台展示内容。</p></div>
+        <div id="notification" class="message" role="status" aria-live="polite"></div>
+        <div id="editor"></div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
