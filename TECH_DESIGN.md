@@ -83,7 +83,7 @@ SiteContent {
 - 本地运行：`python start_server.py --no-browser`，默认打开 `http://127.0.0.1:8000/`。
 - 单元测试：`npm test`；HTTP检查：`python tests/http_smoke.py`。
 - 静态托管：以仓库根目录为发布目录；无需 build 命令；首页入口 `index.html`。
-- 当前仓库提供 GitHub Pages 目标网址 `https://zhijianluan-77.github.io/TTT-homework/`，需以实际打开后的结果确认发布状态。
+- 当前 Cloudflare Pages 控制台已显示成功部署，分配网址为 `https://ttt-homework.pages.dev/`，仍需用真实浏览器确认外网访问。GitHub Pages 网址为原有备用目标地址。
 - 使用 Vercel 或 Cloudflare Pages 时，关联该仓库，框架设为 Other/None，输出目录使用仓库根目录，并以平台实际颁发的 URL 为最终地址。
 
 ## 7. 验收重点
